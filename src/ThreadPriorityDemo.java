@@ -1,21 +1,29 @@
-class PriorityThread extends Thread {
+class MyThread extends Thread {
+    MyThread(String name) {
+        super(name);
+    }
+
     public void run() {
-        // Empty run method, we just need the thread object to exist and have properties
+        // No printing here
     }
 }
 
 public class ThreadPriorityDemo {
     public static void main(String[] args) {
-        // TODO: Create three threads (t1, t2, t3)
-        
-        // TODO: Set priorities
-        // t1.setPriority(Thread.MIN_PRIORITY);
-        // t2.setPriority(Thread.NORM_PRIORITY);
-        // t3.setPriority(Thread.MAX_PRIORITY);
-        
-        // TODO: Print priorities in the required format
-        // System.out.println("Thread 1 Priority: " + t1.getPriority());
-        // System.out.println("Thread 2 Priority: " + t2.getPriority());
-        // System.out.println("Thread 3 Priority: " + t3.getPriority());
+
+        // Create three threads
+        MyThread t1 = new MyThread("Thread 1");
+        MyThread t2 = new MyThread("Thread 2");
+        MyThread t3 = new MyThread("Thread 3");
+
+        // Set priorities
+        t1.setPriority(Thread.MIN_PRIORITY);   // 1
+        t2.setPriority(Thread.NORM_PRIORITY);  // 5
+        t3.setPriority(Thread.MAX_PRIORITY);   // 10
+
+        // Print output in exact required order
+        System.out.println(t1.getName() + " Priority: " + t1.getPriority());
+        System.out.println(t2.getName() + " Priority: " + t2.getPriority());
+        System.out.println(t3.getName() + " Priority: " + t3.getPriority());
     }
 }
