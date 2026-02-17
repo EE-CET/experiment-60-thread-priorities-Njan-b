@@ -1,11 +1,10 @@
 class MyThread extends Thread {
-
     MyThread(String name) {
         super(name);
     }
 
     public void run() {
-        System.out.println(getName() + " Priority: " + getPriority());
+        // No printing here
     }
 }
 
@@ -22,9 +21,9 @@ public class ThreadPriorityDemo {
         t2.setPriority(Thread.NORM_PRIORITY);  // 5
         t3.setPriority(Thread.MAX_PRIORITY);   // 10
 
-        // Start threads
-        t1.start();
-        t2.start();
-        t3.start();
+        // Print output in exact required order
+        System.out.println(t1.getName() + " Priority: " + t1.getPriority());
+        System.out.println(t2.getName() + " Priority: " + t2.getPriority());
+        System.out.println(t3.getName() + " Priority: " + t3.getPriority());
     }
 }
